@@ -1,1 +1,0 @@
-# Xwendkar12sonya
