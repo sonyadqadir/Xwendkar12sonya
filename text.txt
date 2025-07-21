@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ئامادەیی ناوداران - پۆلی ١٢</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #3498db;
+            --secondary: #2c3e50;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #2ecc71;
+            --bio: #27ae60;
+            --chem: #9b59b6;
+            --phy: #e67e22;
+            --math: #3498db;
+            --comp: #1abc9c;
+            --eng: #f1c40f;
+            --arab: #16a085;
+            --kurd: #c0392b;
+            --rel: #8e44ad;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(90deg, var(--secondary) 0%, var(--primary) 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-bottom: 5px solid var(--accent);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            font-size: 2.5rem;
+            margin-left: 15px;
+            color: var(--accent);
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo-text span {
+            color: var(--accent);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin: 0 10px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover, .nav-links a.active {
+            background-color: var(--accent);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            background: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
+            margin-bottom: 50px;
+            color: white;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            color: #eee;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            margin: 10px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        }
+        
+        .btn-accent {
+            background: linear-gradient(90deg, var(--accent) 0%, #c0392b 100%);
+        }
+        
+        /* Subjects Section */
+        .section-title {
+            text-align: center;
+            margin: 40px 0 30px;
+            font-size: 2.2rem;
+            color: var(--secondary);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+        
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+        
+        .subject-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #eaeaea;
+        }
+        
+        .subject-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .subject-icon {
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .subject-icon img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+        
+        .subject-icon i {
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+        
+        .subject-content {
+            padding: 25px;
+            text-align: right;
+        }
+        
+        .subject-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+        
+        .subject-teacher {
+            color: #666;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .subject-teacher i {
+            margin-left: 8px;
+        }
+        
+        .subject-content p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .subject-content a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+        
+        .subject-content a i {
+            margin-left: 5px;
+            transition: transform 0.3s ease;
+        }
+        
+        .subject-content a:hover i {
+            transform: translateX(-5px);
+        }
+        
+        .pdf-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        /* Math Card */
+        .math-card .subject-icon {
+            background: var(--math);
+        }
+        
+        /* Physics Card */
+        .phy-card .subject-icon {
+            background: var(--phy);
+        }
+        
+        /* Chemistry Card */
+        .chem-card .subject-icon {
+            background: var(--chem);
+        }
+        
+        /* Biology Card */
+        .bio-card .subject-icon {
+            background: var(--bio);
+        }
+        
+        /* Computer Science Card */
+        .comp-card .subject-icon {
+            background: var(--comp);
+        }
+        
+        /* English Card */
+        .eng-card .subject-icon {
+            background: var(--eng);
+        }
+        
+        /* Arabic Card */
+        .arab-card .subject-icon {
+            background: var(--arab);
+        }
+        
+        /* Kurdish Card */
+        .kurd-card .subject-icon {
+            background: var(--kurd);
+        }
+        
+        /* Religion Card */
+        .rel-card .subject-icon {
+            background: var(--rel);
+        }
+        
+        /* Daily Motivation */
+        .daily-motivation {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            border-left: 5px solid var(--accent);
+        }
+        
+        .daily-motivation h3 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+        
+        .motivation-text {
+            font-size: 1.2rem;
+            color: #555;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .motivation-author {
+            font-weight: 600;
+            color: var(--accent);
+        }
+        
+        /* Study Schedule */
+        .schedule {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin: 40px 0;
+        }
+        
+        .schedule-header {
+            background: linear-gradient(90deg, var(--secondary) 0%, var(--primary) 100%);
+            color: white;
+            padding: 15px 20px;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .schedule-table th, .schedule-table td {
+            padding: 12px 15px;
+            text-align: right;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .schedule-table th {
+            background-color: #f8f9fa;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+        
+        .schedule-table tr:hover {
+            background-color: #f5f7fa;
+        }
+        
+        /* Features Section */
+        .features {
+            background: linear-gradient(135deg, var(--secondary) 0%, #1a2530 100%);
+            color: white;
+            padding: 70px 0;
+            margin: 60px 0;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .features::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.03" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,208C1248,224,1344,192,1392,176L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+            text-align: right;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.12);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+        
+        /* Teachers Section */
+        .teachers {
+            margin: 60px 0;
+        }
+        
+        .teachers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .teacher-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .teacher-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .teacher-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .teacher-info {
+            padding: 20px;
+            text-align: right;
+        }
+        
+        .teacher-name {
+            font-size: 1.3rem;
+            color: var(--secondary);
+            margin-bottom: 5px;
+        }
+        
+        .teacher-subject {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .teacher-exp {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column {
+            text-align: right;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-column ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-column ul li a i {
+            margin-left: 8px;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--accent);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: white;
+            background: rgba(255,255,255,0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        .creator {
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+        
+        .creator p {
+            margin: 5px 0;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 20px;
+                justify-content: center;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .footer-column {
+                text-align: center;
+            }
+            
+            .footer-column h3::after {
+                right: 50%;
+                transform: translateX(50%);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .subject-icon {
+                height: 120px;
+                font-size: 3rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .schedule-table th, .schedule-table td {
+                padding: 8px 10px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+‎    <!-- سەرپەڕی -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <div class="logo-text">ئامادەیی <span>ناوداران</span></div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#" class="active">سەرەکی</a></li>
+                    <li><a href="#">بابەتەکان</a></li>
+                    <li><a href="#">مامۆستایان</a></li>
+                    <li><a href="#">سەرچاوەکان</a></li>
+                    <li><a href="#">پەیوەندی</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+‎    <!-- بەشی سەرەکی -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>بەخێربێن بۆ <span class="highlight">ئامادەیی ناوداران</span></h1>
+            <p>پلاتفۆرمێکی تایبەت بۆ خوێندکارانی پۆلی ١٢ی زانستی - دروستکراو لەلایەن سۆنیا داوود بە ڕێنمایی مامۆستا ئیبراهیم زاهیر</p>
+            <a href="#" class="btn">دەستپێبکە</a>
+            <a href="#" class="btn btn-accent">تاقیکردنەوەکان <i class="fas fa-arrow-left"></i></a>
+        </div>
+    </section>
+
+‎    <!-- بەشی بابەتەکان -->
+    <div class="container">
+        <h2 class="section-title">بابەتەکانی پۆلی ١٢</h2>
+        <div class="subjects-grid">
+‎            <!-- بیرکاری -->
+            <div class="subject-card math-card">
+                <div class="subject-icon">
+                    <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="بیرکاری">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <div class="subject-content">
+                    <h3>بیرکاری</h3>
+                    <div class="subject-teacher">
+                        <i class="fas fa-chalkboard-teacher"></i>
+‎          مامۆستا:ئومید مەجید
+                    </div>
+                    <p>هەموو بابەتەکانی بیرکاری بۆ پۆلی ١٢، وانەکان، نموونە و تاقیکردنەوەکان</p>
+                    <a href="#">بینینی بابەتەکان <i class="fas fa-book"></i></a>
+                </div>
+            </div>
+            
+‎            <!-- فیزیا -->
+            <div class="subject-card phy-card">
+                <div class="subject-icon">
+                    <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="فیزیا">
+                    <i class="fas fa-atom"></i>
+                </div>
+                <div class="subject-content">
+                    <h3>فیزیک</h3>
+                    <div class="subject-teacher">
+                        <i class="fas fa-chalkboard-teacher"></i>
+‎                        مامۆستا: زرنگ
+                    </div>
+                    <p>وانەکانی فیزیک، تاقیکردنەوە، نموونە و هەموو بابەتە پێویستەکان</p>
+                    <a href="#">بینینی بابەتەکان <i class="fas fa-book"></i></a>
+                </div>
+            </div>
+            
+‎            
+‎‏<div class="subject-card chem-card">
+‎‏    <div class="subject-icon">
+‎‏        <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="کیمیا">
+‎‏        <i class="fas fa-flask"></i>
+‎‏    </div>
+‎‏    <div class="subject-content">
+‎‏        <h3>کیمیا</h3>
+‎‏        <div class="subject-teacher">
+‎‏            <i class="fas fa-chalkboard-teacher"></i>
+‎            مامۆستا: ئیبراهیم زاهیر
+‎‏        </div>
+‎‏        <p>هەموو بابەتەکانی کیمیا بۆ پۆلی ١٢، وانەکان، نموونە و تاقیکردنەوەکان</p>
+‎‏        <div class="pdf-links">
+‎            <!-- لینکی PDF ڕاستکراوە -->
+‎‏            <a href="https://drive.google.com/file/d/1Pbt0LXBkaOzDaGyCFVKT-t4IoOGZToHn/view?usp=share_link" 
+‎‏               target="_blank"
+‎‏               class="btn btn-accent">
+‎                📘 دابەزاندنی PDF <i class="fas fa-file-pdf"></i>
+‎‏            </a>
+            
+            
+‎‏            <a href="https://youtu.be/3MmN2eJKyRU?si=zHTOvR-6-dWBzevo" 
+‎‏               target="_blank"
+‎‏               class="btn btn-accent">
+‎                📺 بینینی ڤیدیۆ <i class="fas fa-play-circle"></i>
+‎‏            </a>
+            
+            
+‎‏            <a href="https://drive.google.com/file/d/1eBuNVMQr0grvdmpAHvAwCwUp4uh3wqWi/view?usp=share_link" 
+‎‏               target="_blank"
+‎‏               class="btn btn-accent">
+‎               📘 دابەزاندنی PDF    <i class="fas fa-chalkboard"></i>
+‎‏            </a>
+‎‏        </div>
+‎‏    </div>
+‎‏</div>
+            
+
+            
+‎            <!-- زیندەزانی -->
+            <div class="subject-card bio-card">
+                <div class="subject-icon">
+                    <img src="https://static.vecteezy.com/system/resources/previews/027/014/001/non_2x/biology-doodle-set-collection-of-hand-drawn-elements-science-biology-illustration-isolated-on-a-white-background-vector.jpg"alt="زیندەزانی">
+                    <i class="fas fa-dna"></i>
+                </div>
+                <div class="subject-content">
+                    <h3>زیندەزانی</h3>
+                    <div class="subject-teacher">
+                        <i class="fas fa-chalkboard-teacher"></i>
+‎                        مامۆستا: ئارام / ئەحمەد زاهیر
+                    </div>
+                    <p>وانەکانی زیندەزانی، تاقیکردنەوە، نموونە و هەموو بابەتە پێویستەکان</p>
+                    <a href="#">بینینی بابەتەکان <i class="fas fa-book"></i></a>
+                </div>
+            </div>
+            
+‎            <!-- زانستی کۆمپیوتەر -->
+            <div class="subject-card comp-card">
+                <div class="subject-icon">
+                    <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="زانستی کۆمپیوتەر">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <div class="subject-content">
+                    <h3>زانستی کۆمپیوتەر</h3>
+                    <div class="subject-teacher">
+                        <i class="fas fa-chalkboard-teacher"></i>
+‎                        مامۆستا: ڕاستی
+                    </div>
+                    <p>هەموو بابەتەکانی زانستی کۆمپیوتەر بۆ پۆلی 11-10، وانەکان، نموونە و تاقیکردنەوەکان</p>
+                    <a href="#">بینینی بابەتەکان <i class="fas fa-book"></i></a>
+                </div>
+            </div>
+            
+‎            <!-- ئینگلیزی -->
+            <div class="subject-card eng-card">
+                <div class="subject-icon">
+                    <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="ئینگلیزی">
+                    <i class="fas fa-language"></i>
+                </div>
+                <div class="subject-content">
+                    <h3>ئینگلیزی</h3>
+                    <div class="subject-teacher">
+                        <i class="fas fa-chalkboard-teacher"></i>
+‎                        مامۆستا: ژین
+                    </div>
+                    <p>وانەکانی ئینگلیزی، تاقیکردنەوە، نموونە و هەموو بابەتە پێویستەکان</p>
+                    <a href="#">بینینی بابەتەکان <i class="fas fa-book"></i></a>
+                </div>
+            </div>
+            
+‎            <!-- عەرەبی -->
+            <div class="subject-card arab-card">
+                <div class="subject-icon">
+                    <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="عەرەبی">
+                    <i class="fas fa-quran"></i>
+                </div>
+                <div class="subject-content">
+                    <h3>عەرەبی</h3>
+                    <div class="subject-teacher">
+                        <i class="fas fa-chalkboard-teacher"></i>
+‎                        مامۆستا: سامان
+                    </div>
+                    <p>وانەکانی زمانی عەرەبی، تاقیکردنەوە، نموونە و هەموو بابەتە پێویستەکان</p>
+                    <a href="#">بینینی بابەتەکان <i class="fas fa-book"></i></a>
+                </div>
+            </div>
+            
+‎            <!-- کوردی -->
+            <div class="subject-card kurd-card">
+                <div class="subject-icon">
+                    <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="کوردی">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <div class="subject-content">
+                    <h3>کوردی</h3>
+                    <div class="subject-teacher">
+                        <i class="fas fa-chalkboard-teacher"></i>
+‎                        مامۆستا: عەبدوڵا
+                    </div>
+                    <p>وانەکانی زمانی کوردی، تاقیکردنەوە، نموونە و هەموو بابەتە پێویستەکان</p>
+                    <a href="#">بینینی بابەتەکان <i class="fas fa-book"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+‎    <!-- هاندان و وتە -->
+    <div class="container">
+        <div class="daily-motivation">
+            <h3>وتەی ڕۆژ</h3>
+            <p class="motivation-text">"خوێندن تەنها ڕێگایە بۆ گەیشتن بە دوا ڕوانگەکانت. مەستۆربە لەسەر ڕێگاکە، نەک لەسەر ئامانجەکە."</p>
+            <p class="motivation-author">~ مامۆستا ئیبراهیم زاهیر</p>
+        </div>
+    </div>
+
+‎    <!-- خشتەی خوێندن -->
+    <div class="container">
+        <div class="schedule">
+            <div class="schedule-header">
+‎                خشتەی خوێندنی ڕۆژانە
+            </div>
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>کات</th>
+                        <th>بابەت</th>
+                        <th>مامۆستا</th>
+                        <th>کات</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>8:25- 7:45</td>
+                        <td>کیمیا</td>
+                        <td>ئیبراهیم زاهیر</td>
+                        <td>بەیانی</td>
+                    </tr>
+                    <tr>
+                        <td>9:10-8:30</td>
+                        <td>بیرکاری</td>
+                        <td>ئومید مەجید</td>
+                        <td>بەیانی</td>
+                    </tr>
+                    <tr>
+                        <td>10:10-9:30</td>
+                        <td>فیزیا</td>
+                        <td>زرنگ</td>
+                        <td>بەیانی</td>
+                    </tr>
+                    <tr>
+                        <td>11:00- 10:10</td>
+                        <td>زیندەزانی</td>
+                        <td>ئارام / ئەحمەد زاهیر</td>
+                        <td>نیوەڕۆ</td>
+                    </tr>
+                    <tr>
+                        <td>8:25-7:45</td>
+                        <td>ئینگلیزی</td>
+                        <td>ژین</td>
+                        <td>بەیانی</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+<!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">تایبەتمەندییەکان</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>وانەی تایبەت</h3>
+                    <p>وانەکان بە شێوەیەکی تایبەت بۆ خوێندکارانی ئامادەیی ناوداران ڕێکخراون</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>تاقیکردنەوەی ماڵەوە</h3>
+                    <p>تاقیکردنەوەی ماڵەوە بۆ هەموو بابەتەکان لە کۆتایی هەر بابەتێکدا</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>ڕاهێنانەکانی مامۆستا</h3>
+                    <p>ڕاهێنانەکانی تایبەتی مامۆستا ئیبراهیم زاهیر بۆ هەموو بابەتەکان</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>ئامادەیی ناوداران</h3>
+                    <p>پلاتفۆرمێکی تایبەت بۆ خوێندکارانی پۆلی ١٢ی زانستی لە ئامادەیی ناوداران</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>بابەتەکان</h3>
+                    <ul>
+                        <li><a href="#">بیرکاری</a></li>
+                        <li><a href="#">فیزیک</a></li>
+                        <li><a href="#">کیمیا</a></li>
+                        <li><a href="#">بایۆلۆجی</a></li>
+                        <li><a href="#">زانستی کۆمپیوتەر</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>سەرچاوەکان</h3>
+                    <ul>
+                        <li><a href="#">کتێبەکان</a></li>
+                        <li><a href="#">تاقیکردنەوەکانی پێشوو</a></li>
+                        <li><a href="#">فایلی پاورپۆینت</a></li>
+                        <li><a href="#">ڤیدیۆی وانەکان</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>پەیوەندی</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-envelope"></i> info@namdaran.com</a></li>
+                        <li><a href="#"><i class="fas fa-phone"></i> ٠٧٥١١١٤٤٥٧١٧ </a></li>
+                        </a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> هەولێر، کوردستان</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="creator">
+                <p>دروستکراوە لەلایەن: <strong>سۆنیا</strong> - قوتابی پۆلی ١٢ی ئامادەیی ناوداران</p>
+                <p>ڕاهێنەر: مامۆستا <strong>ئیبراهیم زاهیر</strong></p>
+            </div>
+            
+            <div class="copyright">
+                <p>هەموو مافەکان پارێزراون © ٢٠٢٣ ئامادەیی ناوداران</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple animation for subject cards on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const subjectCards = document.querySelectorAll('.subject-card');
+            
+            subjectCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 100);
+                }, index * 100);
+            });
+            
+            // Button hover effect
+            const buttons = document.querySelectorAll('.btn');
+            buttons.forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+</body>
